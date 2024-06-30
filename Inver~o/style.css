@@ -1,3 +1,4 @@
 body {
-    background: url("./Images/studandInlet.png")
+    background: url("./Images/studandInlet.png") repeat;
+    background-color: darkgreen;
 }
