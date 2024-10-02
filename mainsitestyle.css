@@ -52,3 +52,15 @@
     display: flex;
     justify-content: center;
 }
+
+.OnHoverChange, .OnHoverChange:visited, .OnHoverChange:active {
+    color: inherit;
+}
+
+.OnHoverChange:hover {
+    color:white;
+}
+
+.OnHoverChange:hover img{
+    opacity: 0.45;
+}
