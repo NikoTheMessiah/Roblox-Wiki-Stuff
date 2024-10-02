@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Containment unit</title>
+    <style>
+a {text-decoration: none; color:black;}
+figcaption{text-align: center;}
+img {width: 200px;height: 200px;}
+
+
+    </style>
+</head>
+<body>
+    <input type="text" id="bossSearch" onkeyup="boss()">
+    <table id="bosses">
+        <tr>
+<td>  <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120120583946381/punishingbird.png?ex=66fef0d0&is=66fd9f50&hm=84ca4e4d748e1d0257c626a7445169c3a7c133c745ebf53240589841eabc7f0f&.png"> <figcaption class="center"><a href="#">Punishing Bird</a></figcaption></td>
+<td>  <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120120143417344/bigbird.png?ex=66fef0d0&is=66fd9f50&hm=3ac77079cf49227f769fa36813ef92bf2e355f4fc6314ea3945be179a3915574&.png"> <figcaption class="center"><a href="#">Big Bird</a></figcaption></td>
+<td>  <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120120864837663/judgementbird.png?ex=66fef0d0&is=66fd9f50&hm=6d045f10ab10d71326f7aa22038687743bde1797df28a71ed0272377bdcddea2&.png"> <figcaption class="center"><a href="#">Judgement Bird</a></figcaption></td>
+<td>  <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120121082810429/nt.png?ex=66fef0d0&is=66fd9f50&hm=f64bdea5ac4e490be4e08f8ba8082d0f8f9f699fcc42a4143390d7ff320e3ab4&.png"> <figcaption class="center"><a href="#">Nothing There</a></figcaption></td>
+</tr>
+<tr>
+<td>  <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120121380733000/qoh.png?ex=66fef0d0&is=66fd9f50&hm=b77cc47478cad1daa3c4bcd201328d977957477bebdb0b2ba277cd2ebb880a9d&.png"> <figcaption class="center"><a href="#">Queen of Hatred</a></figcaption></td>
+<td>  <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120121598967819/bongbong.png?ex=66fef0d0&is=66fd9f50&hm=b4781205c17d6e040a3d3e7297b78717068795c2dc5884c289cb443bff4bdeeb&.png"> <figcaption class="center"><a href="#">BongBong??</a></figcaption></td>
+<td>  <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120121825329202/sin.png?ex=66fef0d0&is=66fd9f50&hm=d67b943f266e4be32654384582ba32580a06e7cbbdb13165d201ef6663143f10&.png"> <figcaption class="center"><a href="#">Flying Skull</a></figcaption></td>
+<td>  <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120122026786926/lrrd.png?ex=66fef0d0&is=66fd9f50&hm=c3e5f6b8332be0b3a8d16d6fb949181114b2beb531c3bf0a8e030a6f83cc3897&.png"> <figcaption class="center"><a href="#">Little Red Ridding Hood</a></figcaption></td>
+</tr>
+
+
+    </table>
+
+
+    </table>
+
+    <script>
+        function boss() {
+          var input, filter, table, td, a, i;
+          input = document.getElementById("bossSearch");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("bosses");
+          td = table.getElementsByTagName("td");
+          for (i = 0; i < td.length; i++) {
+            a = td[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              td[i].style.display = "";
+            } else {
+              td[i].style.display = "none";
+            }
+          }
+        }
+        </script>
+</body>
+</html>
