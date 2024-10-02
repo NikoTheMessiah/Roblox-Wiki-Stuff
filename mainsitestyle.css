@@ -1,9 +1,3 @@
-body {
-    background: url("../Images/StudandInlet.png") repeat;
-    background-color: #626262;
-    font-family: rubik,helvetica,arial,sans-serif;
-}
-
 .MainContainer {
     max-width: 100%;
     width: 95%;
@@ -15,11 +9,7 @@ body {
     justify-content: center;
 }
 
-.Dark {
-    background-color: rgba(30, 29, 50, 0.85);
-}
 .title {
     display: flex;
     justify-content: center;
 }
-
