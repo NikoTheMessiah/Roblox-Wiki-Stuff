@@ -1,12 +1,51 @@
+.SiteContainer {
+    height:100vh;
+}
+
+.DeltaruneBorder {
+    border: 26px solid transparent;
+    border-image: url(./Images/DeltaruneBorder.gif) 52 stretch;
+    border-image-slice: 27.3% fill;
+}
 .MainContainer {
     max-width: 100%;
     width: 95%;
     display: flex;
-    margin: 0 auto 48px;
+    margin: 0 auto 1em;
     position: relative;
     transition: width .3s, max-width .3s;
     background-color: rgba(30, 29, 50, 0.25);
     justify-content: center;
+}
+.GameHolder {
+    width: 175px; 
+    height: 175px;
+    background-repeat:no-repeat;
+    background-size:contain;
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.Image {
+    width: 175px;
+    height: 175px;
+    position:relative;
+
+}
+
+.GameContainer {
+   display: flex;
+   width: 95%;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-content: center;
+   justify-content: center;
+   align-items: flex-start;
+   background-color: rgba(30,30,30,0.4);
+   margin: 0 auto 1em;
+   margin-top: 5%;
+   height: 40%;
 }
 
 .title {

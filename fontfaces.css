@@ -1,0 +1,20 @@
+@font-face { font-family: 'DTM-sans'; src: url("./Fonts/DTM-sans.ttf") format("truetype"); }
+@font-face { font-family: 'PixelOperator'; src: url("./Fonts/PixelOperator.ttf") format("truetype"); }
+@font-face { font-family: 'Deltarune'; src: url("./Fonts/Deltarune.ttf") format("truetype"); }
+@font-face { font-family: 'Mercy'; src: url("./Fonts/MERCY.ttf") format("truetype"); }
+
+.DTM {
+    font-family: "DTM-sans";
+}
+
+.PIXELOP {
+    font-family: "PixelOperator";
+}
+
+.DELTARUNE {
+    font-family: 'Deltarune';
+}
+
+.MERCY {
+    font-family: "Mercy";
+}
