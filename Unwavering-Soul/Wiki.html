@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="UnwaveringStyle.css">
+    <link rel="stylesheet" href="../fontfaces.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Unwavering Wiki</title>
+</head>
+
+<body>
+    <div class="CenterContainer"> 
+
+        <img src="../Images/Unwavering Wiki Title.png" style="max-width:400px;">
+
+    </div>
+
+    <div class="Row DTM">
+        <h2>
+            <!-- someday pika, someday -->
+            <a style="Display:none">
+                <span class="heart">
+                ❤
+                </span>
+                Limbus Company
+                <audio src="../Sounds/Select.mp3" id="beep-two"></audio>
+            </a>
+
+            <a>
+
+                <span class="heart">
+                ❤
+                </span>
+                Stats
+
+            </a>
+            
+            <a>
+
+                <span class="heart">
+                ❤
+                </span>
+                Locations
+
+            </a>
+
+            <a>
+
+                <span class="heart">
+                ❤
+                </span>
+                Bosses
+
+            </a>
+
+            <a>
+
+                <span class="heart">
+                ❤
+                </span>
+                Items
+
+            </a>
+
+            <a>
+
+                <span class="heart">
+                ❤
+                </span>
+                Events
+
+            </a>
+
+
+
+        </h2> 
+    </div>
+
+
+    <script>
+        $(".Row a").each(function(i) {
+            if (i != 0) {
+            $("#beep-two")
+                .clone()
+                .attr("id", "beep-two" + i)
+                .appendTo($(this));
+            }
+            $(this).data("beeper", i);
+        })
+        .mouseenter(function() {
+            var Audio = $("#beep-two" + $(this).data("beeper"))[0]
+            Audio.volume = 0.1
+            Audio.play()
+        });
+        $("#beep-two").attr("id", "beep-two0");
+
+        $("a")
+
+    </script>
+
+</body>
+
+
+</html>
