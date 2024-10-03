@@ -31,7 +31,18 @@ td {  border: 1px solid black;}
 
 
     </table>
-
+    
+    <button onclick="librarby()" >Tired?</button>
+    <table id="libra" style="display: none;">
+      <tr>
+ <td onclick="thefuny()" > <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291405754447958076/9k.png?ex=66fffad5&is=66fea955&hm=c9f60792abefe0e090aa81347d006c525c787c802100fd445afa5b303c2ff9d8&.png"> <figcaption class=""> Grade 9 fixer</figcaption> </td>
+ <td onclick="thefuny()" > <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291405754447958076/9k.png?ex=66fffad5&is=66fea955&hm=c9f60792abefe0e090aa81347d006c525c787c802100fd445afa5b303c2ff9d8&.png"> <figcaption class=""> Grade 9 fixer</figcaption> </td>
+ <td onclick="thefuny()" > <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291405754447958076/9k.png?ex=66fffad5&is=66fea955&hm=c9f60792abefe0e090aa81347d006c525c787c802100fd445afa5b303c2ff9d8&.png"> <figcaption class=""> Grade 9 fixer</figcaption> </td>
+ <td onclick="thefuny()" > <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291405754447958076/9k.png?ex=66fffad5&is=66fea955&hm=c9f60792abefe0e090aa81347d006c525c787c802100fd445afa5b303c2ff9d8&.png"> <figcaption class=""> Grade 9 fixer</figcaption> </td>
+</tr>
+      
+    </table>
+<audio controls hidden id="rolandspeach"> <source src="https://cdn.discordapp.com/attachments/841717570167242772/1291404794715439228/Exhausted__Tired._Want_rest__Hungry._Want_out2.mp3?ex=66fff9f0&is=66fea870&hm=cc9f6c231b4d4d14c859303fc0517ec7f32366951ca1aebc62d0e5138efb706f&.mp3"></audio>
 
     </table>
 
@@ -63,6 +74,22 @@ td {  border: 1px solid black;}
         {
           document.getElementById("loboto").style.display="block"
         }
+          }
+          function librarby()
+          {
+        if (document.getElementById("libra").style.display=="block")
+        {
+          (document.getElementById("libra").style.display="none")
+        }
+        else
+        {
+          document.getElementById("libra").style.display="block"
+        }
+          }
+
+          function thefuny()
+          {
+            document.getElementById("rolandspeach").play()
           }
         
         </script>
