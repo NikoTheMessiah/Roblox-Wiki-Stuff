@@ -13,8 +13,10 @@ td {  border: 1px solid black;}
 </head>
 <body>
     <input type="text" id="bossSearch" onkeyup="boss()">
-    <table id="bosses">
-        <tr>
+    <button onclick="lobotom()" >wait this isnt limbus company...</button>
+    <div id="bosses">
+    <table id="loboto" style="display: block;">
+        <tr >
 <td> <a href="https://lobotomycorp.fandom.com/wiki/Punishing_Bird">  <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120120583946381/punishingbird.png?ex=66fef0d0&is=66fd9f50&hm=84ca4e4d748e1d0257c626a7445169c3a7c133c745ebf53240589841eabc7f0f&.png"> <figcaption class="center"><span>Punishing Bird</span></figcaption></a></td>
 <td> <a href="https://lobotomycorp.fandom.com/wiki/Big_Bird">  <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120120143417344/bigbird.png?ex=66fef0d0&is=66fd9f50&hm=3ac77079cf49227f769fa36813ef92bf2e355f4fc6314ea3945be179a3915574&.png"> <figcaption class="center"><span>Big Bird</span></figcaption></a></td>
 <td> <a href="https://lobotomycorp.fandom.com/wiki/Judgement_Bird"> <img src="https://cdn.discordapp.com/attachments/841717570167242772/1291120120864837663/judgementbird.png?ex=66fef0d0&is=66fd9f50&hm=6d045f10ab10d71326f7aa22038687743bde1797df28a71ed0272377bdcddea2&.png"> <figcaption class="center"><span >Judgement Bird</span></figcaption></a></td>
@@ -35,11 +37,11 @@ td {  border: 1px solid black;}
 
     <script>
         function boss() {
-          var input, filter, table, td, a, i;
+          var input, filter, div, td, a, i;
           input = document.getElementById("bossSearch");
           filter = input.value.toUpperCase();
-          table = document.getElementById("bosses");
-          td = table.getElementsByTagName("td");
+          div = document.getElementById("bosses");
+          td = div.getElementsByTagName("td");
           for (i = 0; i < td.length; i++) {
             a = td[i].getElementsByTagName("span")[0];
             if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
@@ -49,6 +51,20 @@ td {  border: 1px solid black;}
             }
           }
         }
+
+
+        function lobotom()
+          {
+        if (document.getElementById("loboto").style.display=="block")
+        {
+          (document.getElementById("loboto").style.display="none")
+        }
+        else
+        {
+          document.getElementById("loboto").style.display="block"
+        }
+          }
+        
         </script>
 </body>
 </html>
