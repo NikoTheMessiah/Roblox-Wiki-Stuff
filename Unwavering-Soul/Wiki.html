@@ -9,7 +9,7 @@
     <title>Unwavering Wiki</title>
 </head>
 
-<body>
+<body style="overflow-x:hidden">
     <div class="CenterContainer"> 
 
         <img src="../Images/Unwavering Wiki Title.png " draggable="false"  style="max-width:400px;">
@@ -19,66 +19,195 @@
     <div class="Row DTM" style="color:white;">
         <h2>
             <!-- someday pika, someday -->
-            <a style="Display:none">
-                <span class="heart">
+            <a style="Display:none" class="MenuButton">
+                <span class="heart" id="LIMBUSCOMPANY">
                 ❤
                 </span>
                 Limbus Company
                 <audio src="../Sounds/Select.mp3" id="beep-two"></audio>
             </a>
 
-            <a>
+            <a class="MenuButton">
 
-                <span class="heart">
+                <span class="heart" id="Stats">
                 ❤
                 </span>
                 Stats
 
             </a>
             
-            <a>
+            <a class="MenuButton">
 
-                <span class="heart">
+                <span class="heart" id="Locations">
                 ❤
                 </span>
                 Locations
 
             </a>
 
-            <a>
+            <a class="MenuButton">
 
-                <span class="heart">
+                <span class="heart" id="Bosses">
                 ❤
                 </span>
                 Bosses
 
             </a>
 
-            <a>
+            <a class="MenuButton">
 
-                <span class="heart">
+                <span class="heart" id="Items">
                 ❤
                 </span>
                 Items
 
             </a>
 
-            <a>
+            <a class="MenuButton">
 
-                <span class="heart">
+                <span class="heart" id="Events">
                 ❤
                 </span>
                 Events
 
             </a>
 
-
-
         </h2> 
     </div>
 
+    <div class="Row DTM ExtraSelection" style="color:white; left:110%; position:relative;">
+        
+        <h2 class="LocationsRow" style="display: none;">
+            
+            <a class="MainWorld">
+
+                <span class="heart" id="SubLocationMainWorld">
+                ❤
+                </span>
+                Main World
+
+            </a>
+
+            <a class="DoodleFountain">
+
+                <span class="heart" id="SubLocationDoodleFountain">
+                ❤
+                </span>
+                Doodle Fountain
+
+            </a>
+
+            <a class="CodeWorld">
+
+                <span class="heart" id="SubLocationCodeWorld">
+                ❤
+                </span>
+                C.O.D.E World
+
+            </a>
+
+            <a class="OtherWorld">
+
+                <span class="heart" id="SubLocationOtherWorld">
+                ❤
+                </span>
+                Other World
+
+            </a>
+
+            <a class="SnowyAU">
+
+                <span class="heart" id="SubLocationSnowyAU">
+                ❤
+                </span>
+                Snowy AU
+
+            </a>
+            
+
+        </h2>
+
+
+        <!-- PIKA, IF YOU SEE THIS, COULD YOU FILL THOSE BOTTOM ONES DOING WHATEVER U THINK IS GOOD?? ty-->
+        <!-- exampl:
+         
+            <a class="Name">
+
+                <span class="heart" id="SubClassParent(BossesRowForExample)Name">
+                ❤
+                </span>
+                Main World
+
+            </a>
+
+        -->
+
+        <h2 class="BossesRow" style="display: none;">
+
+        </h2>
+
+        <h2 class="ItemsRow" style="display: none;">
+
+        </h2>
+
+    </div>
 
     <script>
+        var Playing = false
+        var Current = 0
+
+        function HideAll(Boolean,RowId) {
+            var ExtraSelectionRow = $(".ExtraSelection")
+            var Children = $(".ExtraSelection").children("*")
+
+            if (Boolean) {
+                $(".ExtraSelection").animate({left: '-110%'},450);
+                setTimeout(() => {
+                    $(".ExtraSelection")[0].style.left = '110%';
+                    $(".ExtraSelection")[0].style.display="none";
+                    for (var i=0; i<Children.length; i++) {
+                        Children[i].style.display="none";
+                    }
+                    
+
+                }, "500");
+                
+            }else{
+
+                var time = 500
+                if (($(".ExtraSelection")[0].style.display == "") && (Current != 0) ) {
+
+                    $(".ExtraSelection").animate({left: '-110%'},350);
+                    setTimeout(() => {
+                        $(".ExtraSelection")[0].style.left = '110%';
+                        for (var i=0; i<Children.length; i++) {
+                            Children[i].style.display="none";
+                        }
+                    },370);
+                    setTimeout(() => {
+                    $(".ExtraSelection")[0].style.display="";
+                    $(".ExtraSelection").animate({left: '0%'},400);
+                    },420);
+                    
+                }else{
+                    Current = 1
+                    for (var i=0; i<Children.length; i++) {
+                       Children[i].style.display="none";
+                    }
+                    $(".ExtraSelection")[0].style.display="";
+                    $(".ExtraSelection").animate({left: '0%'},500);
+                    
+                }
+                
+
+
+            }
+            setTimeout(() => {
+                RowId.style.display="block";
+            },390);
+            
+        }
+
         $(".Row a").each(function(i) {
             if (i != 0) {
             $("#beep-two")
@@ -88,6 +217,7 @@
             }
             $(this).data("beeper", i);
         })
+
         .mouseenter(function() {
             var Audio = $("#beep-two" + $(this).data("beeper"))[0]
             Audio.volume = 0.1
@@ -95,7 +225,25 @@
         });
         $("#beep-two").attr("id", "beep-two0");
 
-        $("a")
+        $("a.MenuButton").click(function() {
+            var Span = $(this).find("span");
+            var id = $(Span).attr("id");
+                
+            id = id+"Row";
+
+
+
+            var rowid = $(".ExtraSelection").find('.'+id);
+            
+            
+
+            if (rowid[0] != undefined) {
+                HideAll(false,rowid[0]);
+            }else {
+                HideAll(true,rowid[0]);
+            }
+
+        }); 
 
     </script>
 
