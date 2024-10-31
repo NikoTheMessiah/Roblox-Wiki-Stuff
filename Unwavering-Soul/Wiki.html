@@ -97,45 +97,45 @@
         
         <h2 class="LocationsRow" style="display: none;">
             
-            <a class="MainWorld">
+            <a class="SubButton">
 
-                <span class="heart" id="SubLocationsMainWorld">
+                <span class="heart" id="SubLocations-MainWorld">
                 ❤
                 </span>
                 Main World
 
             </a>
 
-            <a class="DoodleFountain">
+            <a class="SubButton">
 
-                <span class="heart" id="SubLocationsDoodleFountain">
+                <span class="heart" id="SubLocations-DoodleFountain">
                 ❤
                 </span>
                 Doodle Fountain
 
             </a>
 
-            <a class="CodeWorld">
+            <a class="SubButton">
 
-                <span class="heart" id="SubLocationsCodeWorld">
+                <span class="heart" id="SubLocations-CodeWorld">
                 ❤
                 </span>
                 C.O.D.E World
 
             </a>
 
-            <a class="OtherWorld">
+            <a class="SubButton">
 
-                <span class="heart" id="SubLocationsOtherWorld">
+                <span class="heart" id="SubLocations-OtherWorld">
                 ❤
                 </span>
                 Other World
 
             </a>
 
-            <a class="SnowyAU">
+            <a class="SubButton">
 
-                <span class="heart" id="SubLocationsSnowyAU">
+                <span class="heart" id="SubLocations-SnowyAU">
                 ❤
                 </span>
                 Snowy AU
@@ -147,27 +147,27 @@
 
 
         <h2 class="EnemiesRow" style="display: none;">
-            <a class="EnemiesAll">
+            <a class="SubButton">
 
-                <span class="heart" id="Enemies-All">
+                <span class="heart" id="Enemy-Main">
                 ❤
                 </span>
-                All Enemies
+                Main Enemies
 
             </a>
 
-            <a class="EnemiesReset">
+            <a class="SubButton">
 
-                <span class="heart" id="Enemies-Reset">
+                <span class="heart" id="Enemy-Reset">
                 ❤
                 </span>
                 Reset Enemies
 
             </a>
 
-            <a class="EnemiesRowSecret">
+            <a class="SubButton">
 
-                <span class="heart" id="Enemies-Secret">
+                <span class="heart" id="Enemy-Secret">
                 ❤
                 </span>
                 Secret Enemies
@@ -180,25 +180,116 @@
         </h2>
 
         <h2 class="ItemsRow" style="display: none;">
+            <a class="SubButton">
 
+                <span class="heart" id="Items-All">
+                ❤
+                </span>
+                All Items
+
+            </a>
+
+            <a class="SubButton">
+
+                <span class="heart" id="Items-Event">
+                ❤
+                </span>
+                Event Items
+
+            </a>
+
+            <a class="SubButton">
+
+                <span class="heart" id="Items-Shop">
+                ❤
+                </span>
+                Shop Items
+
+            </a>
+
+            <a class="SubButton">
+
+                <span class="heart" id="Items-Boss">
+                ❤
+                </span>
+                Boss Items
+
+            </a>
         </h2>
-
-        <h2 class="ItemsRow" style="display: none;">
-            
-        </h2>
-
         
     </div>
 
-    
+    <div class="Menu DTM BoxSelection CenterContainer DRBorder" style="width:90%; display:none;">
+        
+        <div class="MainEnemy CenterContainer" style="width: 100%; user-select: none; display:none;">
+            Main Enemies
+            <hr style="width:100%; height:3px; background-color:white;">
+        </div>
+
+        <table id="InfoHolder">
+
+            <tr class="MainEnemy" style="display:none;">
+                    
+                <td>
+
+                    <div class="ImageHolder">
+                        <img src='https://media.tenor.com/tAq9Cezuq-sAAAAi/limbus-company-heathcliff.gif'>
+                    </div>
+                    <div class="Name">
+                        Through Patches of Violet
+                    </div>
+
+                </td>
+
+                <td>
+                    
+                    <div class="ImageHolder">
+                        <img src='https://media1.tenor.com/m/qvDI-m8pXqgAAAAC/loland.gif'>
+                    </div>
+                    <div class="Name">
+                        Exhausted? Tired. Want rest? Hungry. Want out?
+                    </div>
+
+                </td>
+               
+                <td>
+                    
+                    <div class="ImageHolder">
+                        <img src='https://clubcrochet.com/wp-content/uploads/2023/07/01_BelugaWhale_Square-1-1024x1024.jpg'>
+                    </div>
+                    <div class="Name">
+                        Evil Defining
+                    </div>
+
+                </td>
+  
+                <td>
+                    
+                    <div class="ImageHolder">
+                        <img src='https://media1.tenor.com/m/aYgU4nM0CHUAAAAd/don-quixote-limbus-company.gif'>
+                    </div>
+                    <div class="Name">
+                        Don Quixote 
+                    </div>
+
+                </td>
+  
+
+            </tr>
+
+        </table>
+        
+    </div>
 
     <script>
-        var Playing = false
-        var Current = 0
+        var ListOfSubTabs = ["Enemy","Items","Locations"];
+        var Playing = false;
+        var CurrentSub = 0;
+        var Current = 0;
 
         function HideAll(Boolean,RowId) {
 
-            if (RowId == Current) {
+            if (RowId == Current || RowId == undefined) {
                 Playing = false;
                 return
             }
@@ -220,10 +311,11 @@
                 
             }else{
 
-                var time = 500
+                
                 if (($(".ExtraSelection")[0].style.display == "") && (Current != 0) ) {
-
-                    $(".ExtraSelection").animate({left: '-110%'},350);
+                    if ($(".ExtraSelection")[0].style.left != "110%"){
+                        $(".ExtraSelection").animate({left: '-110%'},350);
+                    }
                     setTimeout(() => {
                         $(".ExtraSelection")[0].style.left = '110%';
                         for (var i=0; i<Children.length; i++) {
@@ -233,29 +325,17 @@
                     setTimeout(() => {
                     $(".ExtraSelection")[0].style.display="";
                     $(".ExtraSelection").animate({left: '0%'},400);
+                    Playing = false;
                     },420);
-                    
-                }else{
-                    Current = 1
-                    for (var i=0; i<Children.length; i++) {
-                       Children[i].style.display="none";
-                    }
-                    $(".ExtraSelection")[0].style.display="";
-                    $(".ExtraSelection").animate({left: '0%'},500);
                     
                 }
                 
 
 
             }
-            if (RowId == undefined){
-                setTimeout(() => {
-                    Playing = false;
-                },390);
-            }else{
+            if (RowId != undefined){
                 setTimeout(() => {
                     RowId.style.display="block";
-                    Playing = false;
                 },390);
             }
             
@@ -304,6 +384,60 @@
             
             
         }); 
+        function ShowBoxWithId(OptionChoosen,SubOption) {
+            
+            var String = SubOption+OptionChoosen;
+            
+
+
+            $(".BoxSelection > div").each(function() {
+                this.style.display = "none";
+            });
+            
+            $("#InfoHolder > tbody").children().each(function() {
+                this.style.display = "none";
+            });
+            console.log(String + " | " + CurrentSub);
+            if (CurrentSub != String) {
+                CurrentSub = String;
+                $(".BoxSelection").children("."+String).each(function() {
+                    this.style.display = "";
+                });
+                
+                $("#InfoHolder > tbody").children("."+String).each(function() {
+                    this.style.display = "";
+                });
+                $(".BoxSelection").each(function() {
+                    this.style.display = "";
+                });  
+            }else{
+                CurrentSub = 0;
+                $(".BoxSelection").each(function() {
+                    this.style.display = "none";
+                }); 
+            }
+        }
+
+        $("a.SubButton").click(function() {
+            var Span = $(this).find("span");
+            var id = $(Span).attr("id");
+            console.log(id);
+            id = id.split("-")
+            console.log(id[0],id[1]);
+            var Found = 0;
+            for (let key in Object.values(ListOfSubTabs))   {
+                    if (ListOfSubTabs[key] != undefined ) {
+                        Found = ListOfSubTabs[key]
+                    }   
+                }
+            
+            if (Found == 0) {return}
+
+            ShowBoxWithId(id[0],id[1]);
+            
+            
+            
+            });
 
     </script>
 

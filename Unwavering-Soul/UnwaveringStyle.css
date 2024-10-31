@@ -29,7 +29,15 @@ body {
 .CenterContainer > img {
     animation: TitleAnimation 3s ease-in-out infinite;
 }
-
+.DRBorder { 
+    text-align: left;
+    color: white;
+    margin: auto;
+    border: 26px solid transparent;
+    border-image: url(../Images/DeltaruneBorder.gif) 52 stretch;
+    image-rendering: pixelated;
+    border-image-slice: 27.3% fill;  
+}
 .Row { 
     background: black; 
     user-select:none;
@@ -56,4 +64,48 @@ body {
 a:hover > .heart {
     opacity: 1;
     color: red;
+}
+
+td {
+    border: 3px solid white; margin-left:8px; margin-right: 8px; margin-top: 5px; margin-bottom: 5px;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
+    width:240px;
+    height:298px;
+    padding: 0;
+}
+td > .ImageHolder {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+    background-color: black;
+}
+.ImageHolder > img {
+    width: 100%;
+    height: 100%;
+}
+td > div {
+    display: flex;
+}
+td > .Name {
+    width: 100%;
+    height:25%;
+    margin: 0;
+    font-size: 20px;
+    border: 3px solid white;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+}
+
+tr {
+    text-align: center; 
+    vertical-align: middle;
 }
