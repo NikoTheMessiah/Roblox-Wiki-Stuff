@@ -47,10 +47,10 @@
 
             <a class="MenuButton">
 
-                <span class="heart" id="Bosses">
+                <span class="heart" id="Enemies">
                 ❤
                 </span>
-                Bosses
+                Enemies
 
             </a>
 
@@ -72,6 +72,24 @@
 
             </a>
 
+            <a class="MenuButton">
+
+                <span class="heart" id="Misc">
+                ❤
+                </span>
+                Misc
+
+            </a>
+
+            <a class="MenuButton">
+
+                <span class="heart" id="Quests">
+                ❤
+                </span>
+                Quests
+
+            </a>
+
         </h2> 
     </div>
 
@@ -81,7 +99,7 @@
             
             <a class="MainWorld">
 
-                <span class="heart" id="SubLocationMainWorld">
+                <span class="heart" id="SubLocationsMainWorld">
                 ❤
                 </span>
                 Main World
@@ -90,7 +108,7 @@
 
             <a class="DoodleFountain">
 
-                <span class="heart" id="SubLocationDoodleFountain">
+                <span class="heart" id="SubLocationsDoodleFountain">
                 ❤
                 </span>
                 Doodle Fountain
@@ -99,7 +117,7 @@
 
             <a class="CodeWorld">
 
-                <span class="heart" id="SubLocationCodeWorld">
+                <span class="heart" id="SubLocationsCodeWorld">
                 ❤
                 </span>
                 C.O.D.E World
@@ -108,7 +126,7 @@
 
             <a class="OtherWorld">
 
-                <span class="heart" id="SubLocationOtherWorld">
+                <span class="heart" id="SubLocationsOtherWorld">
                 ❤
                 </span>
                 Other World
@@ -117,7 +135,7 @@
 
             <a class="SnowyAU">
 
-                <span class="heart" id="SubLocationSnowyAU">
+                <span class="heart" id="SubLocationsSnowyAU">
                 ❤
                 </span>
                 Snowy AU
@@ -128,22 +146,37 @@
         </h2>
 
 
-        <!-- PIKA, IF YOU SEE THIS, COULD YOU FILL THOSE BOTTOM ONES DOING WHATEVER U THINK IS GOOD?? ty-->
-        <!-- exampl:
-         
-            <a class="Name">
+        <h2 class="EnemiesRow" style="display: none;">
+            <a class="EnemiesAll">
 
-                <span class="heart" id="SubClassParent(BossesRowForExample)Name">
+                <span class="heart" id="Enemies-All">
                 ❤
                 </span>
-                Main World
+                All Enemies
 
             </a>
 
-        -->
+            <a class="EnemiesReset">
 
-        <h2 class="BossesRow" style="display: none;">
+                <span class="heart" id="Enemies-Reset">
+                ❤
+                </span>
+                Reset Enemies
 
+            </a>
+
+            <a class="EnemiesRowSecret">
+
+                <span class="heart" id="Enemies-Secret">
+                ❤
+                </span>
+                Secret Enemies
+
+            </a>
+
+            
+
+            
         </h2>
 
         <h2 class="ItemsRow" style="display: none;">
@@ -152,11 +185,19 @@
 
     </div>
 
+    
+
     <script>
         var Playing = false
         var Current = 0
 
         function HideAll(Boolean,RowId) {
+
+            if (RowId == Current) {
+                Playing = false;
+                return
+            }
+            Current = RowId;
             var ExtraSelectionRow = $(".ExtraSelection")
             var Children = $(".ExtraSelection").children("*")
 
@@ -202,9 +243,16 @@
 
 
             }
-            setTimeout(() => {
-                RowId.style.display="block";
-            },390);
+            if (RowId == undefined){
+                setTimeout(() => {
+                    Playing = false;
+                },390);
+            }else{
+                setTimeout(() => {
+                    RowId.style.display="block";
+                    Playing = false;
+                },390);
+            }
             
         }
 
@@ -225,10 +273,16 @@
         });
         $("#beep-two").attr("id", "beep-two0");
 
+
         $("a.MenuButton").click(function() {
+            
+            if (Playing == true) {
+                return
+            }
+            
+            Playing = true;
             var Span = $(this).find("span");
             var id = $(Span).attr("id");
-                
             id = id+"Row";
 
 
@@ -242,7 +296,8 @@
             }else {
                 HideAll(true,rowid[0]);
             }
-
+            
+            
         }); 
 
     </script>
